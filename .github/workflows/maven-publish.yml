@@ -30,7 +30,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Execute Tests
-      run: mvn clean test -Dsuite=Suite -x
+      run: mvn clean test
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
