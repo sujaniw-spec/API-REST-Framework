@@ -9,6 +9,8 @@ on:
   workflow_dispatch:
   release:
     types: [created]
+  schedule:
+    - cron: 00 19 * * *
 
 jobs:
   build:
@@ -28,4 +30,8 @@ jobs:
 
     - name: Build and Test
       run: mvn clean install
-
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: Logs
+        path: logs/
